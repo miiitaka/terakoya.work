@@ -1,0 +1,36 @@
+/*
+Template: maitake
+Theme Name: terakoya.work
+*/
+
+/*
+ Breadcrumb List
+ */
+.breadcrumb-list {
+	list-style: none;
+	padding: 0 0 0 10px;
+}
+
+.breadcrumb-list li {
+	display: inline-block;
+	padding: 0 0 0 1.2em;
+	position: relative;
+}
+
+.breadcrumb-list li:first-child::before {
+	content: "\f102";
+	display: inline-block;
+	font: 1.2em 'dashicons';
+	margin: 0 0 0 -1.2em;
+	position: absolute;
+	top: 0;
+}
+
+.breadcrumb-list li:not(:first-child)::before {
+	content: "\f139";
+	display: inline-block;
+	font: 1.2em 'dashicons';
+	margin: 0 0 0 -1em;
+	position: absolute;
+	top: 0;
+}
