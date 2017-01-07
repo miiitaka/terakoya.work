@@ -21,3 +21,13 @@ function theme_enqueue_script () {
 	wp_enqueue_script( 'google-tag-manager', get_stylesheet_directory_uri() . '/js/google-tag-manager.js', array(), '1.0.0', false );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
+
+function tag_manager_script () {
+	echo '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>';
+}
+add_action( 'amp_post_template_head', 'tag_manager_script' );
+
+function tag_manager_analytics () {
+	echo '<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5D4Q7KC&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>';
+}
+add_action( 'amp_post_template_footer', 'tag_manager_analytics' );
