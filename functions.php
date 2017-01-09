@@ -17,6 +17,9 @@ function plugin_breadcrumb_list () {
 }
 add_action( 'layout-wrapper-hook', 'plugin_breadcrumb_list' );
 
+/**
+ * Google Tag Manager.
+ */
 function theme_enqueue_script () {
 	wp_enqueue_script( 'google-tag-manager', get_stylesheet_directory_uri() . '/js/google-tag-manager.js', array(), '1.0.0', false );
 }
