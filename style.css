@@ -4,8 +4,8 @@ Theme Name: terakoya.work
 */
 
 /*
- Breadcrumb List
- */
+ Plug-in: Breadcrumb List
+*/
 .breadcrumb-list {
 	list-style: none;
 	padding: 0 0 0 10px;
@@ -33,4 +33,18 @@ Theme Name: terakoya.work
 	margin: 0 0 0 -1em;
 	position: absolute;
 	top: 0;
+}
+
+/*
+ Plug-in: WordPress Posted Display
+*/
+.widget_posted_display_widget ul {
+	line-height: 1.2;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.widget_posted_display_widget ul li{
+	margin: 0 0 10px 0;
 }
