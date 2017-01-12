@@ -34,15 +34,3 @@ function tag_manager_analytics () {
 	echo '<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5D4Q7KC&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>';
 }
 add_action( 'amp_post_template_footer', 'tag_manager_analytics' );
-
-/**
- * RSS Feed bug avoid.
- *
- * @version WordPress4.7
- */
-add_filter( 'get_lastpostmodified', '__return_false' );
-
-function do_not_cache_feeds( $feed ) {
-	$feed->enable_cache( false );
-}
-add_action( 'wp_feed_options', 'do_not_cache_feeds' );
