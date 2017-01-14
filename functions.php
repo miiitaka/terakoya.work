@@ -34,3 +34,21 @@ function tag_manager_analytics () {
 	echo '<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5D4Q7KC&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>';
 }
 add_action( 'amp_post_template_footer', 'tag_manager_analytics' );
+
+
+/**
+ * RSS Feed Thumbnail add.
+ *
+ * @param  string $content
+ * @return string $content
+ */
+function rss_feed_thumbnail( $content ) {
+	global $post;
+
+	if ( has_post_thumbnail( $post->ID ) ) {
+		$content = '<figure>' . get_the_post_thumbnail($post->ID) . '</figure>' . $content;
+	}
+	return $content;
+}
+add_filter( 'the_excerpt_rss',  'rss_feed_thumbnail' );
+add_filter( 'the_content_feed', 'rss_feed_thumbnail' );
