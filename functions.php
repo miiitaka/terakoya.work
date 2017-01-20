@@ -48,7 +48,20 @@ function rss_feed_thumbnail( $content ) {
 	if ( has_post_thumbnail( $post->ID ) ) {
 		$content = '<figure>' . get_the_post_thumbnail($post->ID) . '</figure>' . $content;
 	}
+
+	// Delete unnecessary automatic insertion tag
+	$content = str_replace( ' />', '>', $content );
 	return $content;
 }
 add_filter( 'the_excerpt_rss',  'rss_feed_thumbnail' );
 add_filter( 'the_content_feed', 'rss_feed_thumbnail' );
+
+/**
+ * Delete unnecessary automatic insertion tag
+ */
+add_action( 'init', function () {
+	remove_filter( 'the_excerpt',      'wpautop' );
+	remove_filter( 'the_content',      'wpautop' );
+	remove_filter( 'the_excerpt_rss',  'wpautop' );
+	remove_filter( 'the_content_feed', 'wpautop' );
+});
