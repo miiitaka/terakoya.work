@@ -1,2 +1,2 @@
 # terakoya.work
-📌 WordPress child theme
+📌 WordPress child theme by maitake
