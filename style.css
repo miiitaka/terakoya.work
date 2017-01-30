@@ -48,3 +48,40 @@ Theme Name: terakoya.work
 .widget_posted_display_widget ul li{
 	margin: 0 0 10px 0;
 }
+
+/*
+ Display Plug-in information
+*/
+.display-plugin-info {
+	background: #eee;
+	border: solid 1px #ccc;
+	box-sizing: border-box;
+	line-height: 1;
+	padding: 10px;
+	width: 100%;
+}
+
+.display-plugin-info figure {
+	display: inline-block;
+}
+
+.display-plugin-info figure img {
+	margin: 0 10px 0 0;
+}
+
+.display-plugin-info ul {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.display-plugin-info ul li {
+	margin: 0 0 5px 0;
+}
+
+.display-plugin-info ul li:first-child {
+	font-size: 20px;
+	margin: 5px 0 10px 0;
+}

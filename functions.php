@@ -65,3 +65,49 @@ add_action( 'init', function () {
 	remove_filter( 'the_excerpt_rss',  'wpautop' );
 	remove_filter( 'the_content_feed', 'wpautop' );
 });
+
+
+/**
+ * WordPress Plug-in Display
+ *
+ * @param  array  $atts
+ * @return string $html
+ */
+function display_plugin_info( $atts ) {
+	$args = array(
+		'author'      => '',
+		'plugin_slug' => ''
+	);
+	extract( shortcode_atts( $args, $atts ) );
+	require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+
+	$query = 'query_plugins';
+	$arg['author'] = $author;
+	$arg['fields'] = array(
+		'active_installs' => true,
+		'compatibility'   => true,
+		'downloaded'      => true,
+		'icons'           => true
+	);
+	$plugins = plugins_api( $query, $arg )->plugins;
+	$html    = '';
+
+	foreach ( $plugins as $plugin ) {
+		if ( $plugin->slug === $plugin_slug || empty( $plugin_slug ) ) {
+			$html .= '<section class="display-plugin-info">';
+			$html .= '<figure>';
+			$html .= '<a href="' . esc_url( $plugin->homepage ) . '"><img src="' . esc_html( $plugin->icons['1x'] ) . '" alt="' . esc_html( $plugin->name ) . ' width="128" height="128"></a>';
+			$html .= '</figure>';
+			$html .= '<ul>';
+			$html .= '<li><a href="' . esc_url( $plugin->homepage ) . '">' . esc_html( $plugin->name ) . '</a></li>';
+			$html .= '<li>Author : ' . $plugin->author . '</li>';
+			$html .= '<li>Version : ' . esc_html( $plugin->version ) . '</li>';
+			$html .= '<li>Downloads : ' . esc_html( $plugin->downloaded ) . ' ( Active Install: ' . esc_html( $plugin->active_installs ) . ' )</li>';
+			$html .= '<li>' . esc_html( $plugin->short_description ) . '</li>';
+			$html .= '</ul>';
+			$html .= '</section>';
+		}
+	}
+	return $html;
+}
+add_shortcode( 'plugin_info', 'display_plugin_info' );
