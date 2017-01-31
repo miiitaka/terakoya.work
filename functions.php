@@ -102,7 +102,7 @@ function display_plugin_info( $atts ) {
 			$html .= '<li><a href="' . esc_url( $plugin->homepage ) . '">' . esc_html( $plugin->name ) . '</a></li>';
 			$html .= '<li>Author : ' . $plugin->author . '</li>';
 			$html .= '<li>Version : ' . esc_html( $plugin->version ) . '</li>';
-			$html .= '<li>Downloads : ' . esc_html( $plugin->downloaded ) . ' ( Active Install: ' . esc_html( $plugin->active_installs ) . ' )</li>';
+			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin->downloaded ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin->active_installs ) ) . ' )</li>';
 			$html .= '<li>' . esc_html( $plugin->short_description ) . '</li>';
 			$html .= '</ul>';
 			$html .= '</section>';
@@ -111,3 +111,15 @@ function display_plugin_info( $atts ) {
 	return $html;
 }
 add_shortcode( 'plugin_info', 'display_plugin_info' );
+
+function amazon_affilliate_post() {
+	$html  = '';
+	$html .= '<aside class="amazon-affilliate-post amazon-affilliate-post-pc">';
+	$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?t=miiitaka-22&o=9&p=48&l=st1&mode=books-jp&search=wordpress&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="728" height="90" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>';
+	$html .= '</aside>';
+	$html .= '<aside class="amazon-affilliate-post amazon-affilliate-post-sp">';
+	$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?t=miiitaka-22&o=9&p=12&l=st1&mode=books-jp&search=wordpress&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="300" height="250" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>';
+	$html .= '</aside>';
+	echo $html;
+}
+add_action( 'layout-post-hook', 'amazon_affilliate_post' );
