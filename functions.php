@@ -25,6 +25,29 @@ function theme_enqueue_script () {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
+/**
+ * Google Tag Manager dataLayer
+ */
+function set_gtm_data_layer () {
+	if ( is_single() && have_posts() ) {
+		while ( have_posts() ) : the_post();
+			$html  = "";
+			$html .=  "<script>";
+			$html .=  "dataLayer = dataLayer || [];";
+			$html .=  "dataLayer.push({";
+			$html .=  "'author': '" . esc_html( get_the_author() ) . "'";
+			$html .=  "});";
+			$html .=  "</script>";
+			echo $html;
+		endwhile;
+	}
+}
+add_action( 'wp_head', 'set_gtm_data_layer' );
+
+
+/**
+ * Google Tag Manager(AMP).
+ */
 function tag_manager_script () {
 	echo '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>';
 }
@@ -46,7 +69,7 @@ function rss_feed_thumbnail( $content ) {
 	global $post;
 
 	if ( has_post_thumbnail( $post->ID ) ) {
-		$content = '<figure>' . get_the_post_thumbnail($post->ID) . '</figure>' . $content;
+		$content = '<figure>' . get_the_post_thumbnail( $post->ID ) . '</figure>' . $content;
 	}
 
 	// Delete unnecessary automatic insertion tag
