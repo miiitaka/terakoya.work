@@ -26,26 +26,6 @@ function theme_enqueue_script () {
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
 /**
- * Google Tag Manager dataLayer
- */
-function set_gtm_data_layer () {
-	if ( is_single() && have_posts() ) {
-		while ( have_posts() ) : the_post();
-			$html  = "";
-			$html .=  "<script>";
-			$html .=  "dataLayer = dataLayer || [];";
-			$html .=  "dataLayer.push({";
-			$html .=  "'author': '" . esc_html( get_the_author() ) . "'";
-			$html .=  "});";
-			$html .=  "</script>";
-			echo $html;
-		endwhile;
-	}
-}
-add_action( 'wp_head', 'set_gtm_data_layer' );
-
-
-/**
  * Google Tag Manager(AMP).
  */
 function tag_manager_script () {
