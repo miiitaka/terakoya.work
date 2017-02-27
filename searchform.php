@@ -12,7 +12,7 @@
 	<label>
 		<input type="search" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s">
 	</label>
-	<input type="submit" value="Search">
+	<button type="submit"><span class="dashicons dashicons-search"></span></button>
 </form>
 
 <h3 class="frequently-searched-words-title">よく検索されるキーワード</h3>
