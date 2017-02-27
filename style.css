@@ -106,3 +106,29 @@ Theme Name: terakoya.work
 		display: block;
 	}
 }
+
+/*
+ Plug-in: Frequently Searched Words
+*/
+ul.frequently-searched-words {
+	margin: 0;
+	padding: 0;
+}
+
+ul.frequently-searched-words li {
+	border: none;
+	display: inline-block;
+	font-size: 12px;
+	padding: 2px 3px 0 3px;
+}
+
+ul.frequently-searched-words li:after {
+	content: "|";
+	padding: 0 0 0 3px;
+}
+
+.frequently-searched-words-title {
+	border-bottom: solid 1px #cccccc;
+	font-size: 12px;
+	padding: 0 0 5px 0;
+}
