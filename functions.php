@@ -75,7 +75,6 @@ add_action( 'init', function () {
 	remove_filter( 'the_content_feed', 'wpautop' );
 });
 
-
 /**
  * WordPress Plug-in Display
  *
@@ -105,7 +104,7 @@ function display_plugin_info( $atts ) {
 		if ( $plugin->slug === $plugin_slug || empty( $plugin_slug ) ) {
 			$html .= '<section class="display-plugin-info">';
 			$html .= '<figure>';
-			$html .= '<a href="' . esc_url( $plugin->homepage ) . '"><img src="' . esc_html( $plugin->icons['1x'] ) . '" alt="' . esc_html( $plugin->name ) . ' width="128" height="128"></a>';
+			$html .= '<a href="' . esc_url( $plugin->homepage ) . '"><img src="' . esc_html( $plugin->icons['1x'] ) . '" alt="' . esc_attr( $plugin->name ) . '" width="128" height="128"></a>';
 			$html .= '</figure>';
 			$html .= '<ul>';
 			$html .= '<li><a href="' . esc_url( $plugin->homepage ) . '">' . esc_html( $plugin->name ) . '</a></li>';
@@ -121,6 +120,9 @@ function display_plugin_info( $atts ) {
 }
 add_shortcode( 'plugin_info', 'display_plugin_info' );
 
+/**
+ * Amazon affilliate
+ */
 function amazon_affilliate_post() {
 	$html  = '';
 	$html .= '<aside class="amazon-affilliate-post amazon-affilliate-post-pc">';
