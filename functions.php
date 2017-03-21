@@ -81,7 +81,7 @@ add_action( 'init', function () {
  * @param  array  $atts
  * @return string $html
  */
-function display_plugin_info( $atts ) {
+function display_plugin_info( array $atts ) {
 	$args = array(
 		'author'      => '',
 		'plugin_slug' => ''
@@ -116,9 +116,38 @@ function display_plugin_info( $atts ) {
 			$html .= '</section>';
 		}
 	}
-	return $html;
+	return (string) $html;
 }
 add_shortcode( 'plugin_info', 'display_plugin_info' );
+
+/**
+ * GitHub Display
+ *
+ * @param  array  $atts
+ * @return string $html
+ */
+function display_github_info( array $atts ) {
+	$args = array(
+		'repository' => ''
+	);
+	extract( shortcode_atts( $args, $atts ) );
+
+	$url   = "https://github.com/miiitaka/";
+
+	$html  = '<section class="display-plugin-info">';
+	$html .= '<figure>';
+	$html .= '<a href="' . $url . esc_attr( $repository ) . '"><img src="https://www.terakoya.work/wp-content/uploads/2017/03/octocat-monalisa.png" alt="GitHub" width="128" height="128"></a>';
+	$html .= '</figure>';
+	$html .= '<ul>';
+	$html .= '<li><a href="' . $url . esc_attr( $repository ) . '">' . esc_html( $repository ) . '</a></li>';
+	$html .= '<li>Author : <a href="' . $url . '">Kazuya Takami</a></li>';
+	$html .= '<li>Repository URL : <a href="' . $url . esc_attr( $repository ) . '">' . $url . esc_attr( $repository ) . '</a></li>';
+	$html .= '</ul>';
+	$html .= '</section>';
+
+	return (string) $html;
+}
+add_shortcode( 'github_info', 'display_github_info' );
 
 /**
  * Amazon affilliate
