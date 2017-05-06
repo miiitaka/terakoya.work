@@ -163,3 +163,13 @@ function amazon_affilliate_post() {
 	echo $html;
 }
 add_action( 'layout-post-hook', 'amazon_affilliate_post' );
+
+/**
+ * Comment Control
+ */
+ function comment_form_control( $args ) {
+	 $args['fields']['email']      = '';
+	 $args['comment_notes_before'] = '';
+	 return $args;
+ }
+ add_filter( 'comment_form_defaults', 'comment_form_control' );
