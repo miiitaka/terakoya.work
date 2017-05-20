@@ -173,3 +173,14 @@ ul.frequently-searched-words li:after {
 	font-size: 12px;
 	padding: 0 0 5px 0;
 }
+
+/*
+ WordCamp Kyoto 2017 Banner
+*/
+.wckyoto2017 {
+	margin: 0 0 10px 0;
+}
+
+.wckyoto2017 a img {
+	width: 100%;
+}
