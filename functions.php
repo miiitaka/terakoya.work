@@ -173,3 +173,22 @@ add_action( 'layout-post-hook', 'amazon_affilliate_post' );
 	 return $args;
  }
  add_filter( 'comment_form_defaults', 'comment_form_control' );
+
+ /**
+  * Post list thumbnail
+  */
+function manage_posts_columns( $columns ) {
+	$columns['thumbnail'] = __( 'Feature Image');
+	return $columns;
+}
+
+function add_column( $column_name, $post_id ) {
+	if ( 'thumbnail' == $column_name ) {
+		$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail', array( 'style' => 'width: 100%;' )  );
+	}
+	if ( isset( $thumbnail ) && $thumbnail ) {
+		echo preg_replace( '/(width|height)="\d*"\s/', '', $thumbnail );
+	}
+}
+add_filter( 'manage_posts_columns', 'manage_posts_columns' );
+add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
