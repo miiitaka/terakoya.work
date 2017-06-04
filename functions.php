@@ -192,3 +192,14 @@ function add_column( $column_name, $post_id ) {
 }
 add_filter( 'manage_posts_columns', 'manage_posts_columns' );
 add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
+
+/**
+ * AdSense Tag
+ */
+function add_adsense_tag() {
+	$html  = '';
+	$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+	$html .= '<script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5741984081497449",enable_page_level_ads: true});</script>';
+	echo $html;
+}
+add_action( 'wp_head', 'add_adsense_tag' );
