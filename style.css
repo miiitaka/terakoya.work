@@ -12,9 +12,15 @@ Theme Name: terakoya.work
 }
 
 .breadcrumb-list li {
-	display: inline-block;
-	padding: 0 0 0 1.2em;
+	display: block;
+	padding: 0 0 0 1.5em;
 	position: relative;
+}
+
+@media screen and ( min-width: 1100px ) {
+	.breadcrumb-list li {
+		display: inline-block;
+	}
 }
 
 .breadcrumb-list li:first-child::before {
@@ -29,7 +35,7 @@ Theme Name: terakoya.work
 .breadcrumb-list li:not(:first-child)::before {
 	content: "\f139";
 	display: inline-block;
-	font: 1.2em 'dashicons';
+	font: 1.5em 'dashicons';
 	margin: 0 0 0 -1em;
 	position: absolute;
 	top: 0;
