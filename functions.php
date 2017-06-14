@@ -111,6 +111,7 @@ function display_plugin_info( array $atts ) {
 			$html .= '<li>Author : ' . $plugin->author . '</li>';
 			$html .= '<li>Version : ' . esc_html( $plugin->version ) . '</li>';
 			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin->downloaded ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin->active_installs ) ) . ' )</li>';
+			$html .= '<li>Downloads Site: <a href="https://wordpress.org/plugins/' . esc_html( $plugin->slug ) . '/" target="_blank">https://wordpress.org/plugins/' . esc_html( $plugin->slug ) . '</a></li>';
 			$html .= '<li>' . esc_html( $plugin->short_description ) . '</li>';
 			$html .= '</ul>';
 			$html .= '</section>';
