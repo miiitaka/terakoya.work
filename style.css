@@ -26,7 +26,8 @@ Theme Name: terakoya.work
 .breadcrumb-list li:first-child::before {
 	content: "\f102";
 	display: inline-block;
-	font: 1.2em 'dashicons';
+	font: 1em 'dashicons';
+	line-height: 1.2;
 	margin: 0 0 0 -1.2em;
 	position: absolute;
 	top: 0;
@@ -35,7 +36,8 @@ Theme Name: terakoya.work
 .breadcrumb-list li:not(:first-child)::before {
 	content: "\f139";
 	display: inline-block;
-	font: 1.5em 'dashicons';
+	font: 1em 'dashicons';
+	line-height: 1.2;
 	margin: 0 0 0 -1em;
 	position: absolute;
 	top: 0;
