@@ -203,7 +203,7 @@ function add_adsense_tag() {
 	$html .= '<script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5741984081497449",enable_page_level_ads: true});</script>';
 	echo $html;
 }
-//add_action( 'wp_head', 'add_adsense_tag' );
+add_action( 'wp_head', 'add_adsense_tag' );
 
 /**
  * jQuery Migrate remove.
@@ -215,3 +215,5 @@ function dequeue_jquery_migrate( $scripts ) {
 	}
 }
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
+
+remove_filter('widget_text_content', 'wpautop');
