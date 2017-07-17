@@ -183,12 +183,9 @@ ul.frequently-searched-words li:after {
 }
 
 /*
- WordCamp Kyoto 2017 Banner
+ Sidebar hook point
 */
-.wckyoto2017 {
+.layout-sidebar-top-hook,
+.layout-sidebar-bottom-hook {
 	margin: 0 0 10px 0;
-}
-
-.wckyoto2017 a img {
-	width: 100%;
 }
