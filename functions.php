@@ -151,7 +151,23 @@ function display_github_info( array $atts ) {
 add_shortcode( 'github_info', 'display_github_info' );
 
 /**
- * Amazon affilliate
+ * Amazon affilliate (Sidebar)
+ */
+function amazon_affilliate_sidebar() {
+	echo '<script type="text/javascript">amazon_ad_tag="miiitaka-22";amazon_ad_width="300";amazon_ad_height="250";amazon_ad_link_target="new";amazon_ad_price="retail";amazon_color_border="444444";amazon_color_text ="444444";amazon_ad_categories="a";</script><script src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>';
+}
+add_action( 'layout-sidebar-top-hook', 'amazon_affilliate_sidebar' );
+
+/**
+ * Adsense
+ */
+function adsense_affilliate_sidebar() {
+	echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Responsive banner --><ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-5741984081497449" data-ad-slot="8696742010" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+}
+add_action( 'layout-sidebar-bottom-hook', 'adsense_affilliate_sidebar' );
+
+/**
+ * Amazon affilliate (Post)
  */
 function amazon_affilliate_post() {
 	$html  = '';
