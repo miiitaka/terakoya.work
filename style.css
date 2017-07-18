@@ -137,23 +137,10 @@ Theme Name: terakoya.work
 }
 
 /*
- Amazon Affilliate banner
+ AdSense Affiliate banner
 */
-.amazon-affilliate-post {
-	display: none;
-	margin: 0 auto 10px auto;
-	text-align: center;
-}
-
-@media screen and ( min-width: 769px ) {
-	.amazon-affilliate-post-pc {
-		display: block;
-	}
-}
-@media screen and ( max-width: 768px ) {
-	.amazon-affilliate-post-sp {
-		display: block;
-	}
+.adsense-affiliate-post {
+	margin: 0 auto 15px auto;
 }
 
 /*
