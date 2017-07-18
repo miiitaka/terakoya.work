@@ -151,40 +151,37 @@ function display_github_info( array $atts ) {
 add_shortcode( 'github_info', 'display_github_info' );
 
 /**
- * Amazon affilliate (Sidebar)
+ * Amazon affiliate (Sidebar)
  */
-function amazon_affilliate_sidebar() {
+function amazon_affiliate_sidebar() {
 	$html  = '<section class="layout-sidebar-top-hook">';
 	$html .= '<script type="text/javascript">amazon_ad_tag="miiitaka-22";amazon_ad_width="300";amazon_ad_height="250";amazon_ad_link_target="new";amazon_ad_price="retail";amazon_color_border="444444";amazon_color_text ="444444";amazon_ad_categories="a";</script><script src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>';
 	$html .= '</section>';
 	echo $html;
 }
-add_action( 'layout-sidebar-top-hook', 'amazon_affilliate_sidebar' );
+add_action( 'layout-sidebar-top-hook', 'amazon_affiliate_sidebar' );
 
 /**
  * Adsense
  */
-function adsense_affilliate_sidebar() {
+function adsense_affiliate_sidebar() {
 	$html  = '<section class="layout-sidebar-bottom-hook">';
 	$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Responsive banner --><ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-5741984081497449" data-ad-slot="8696742010" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
 	$html .= '</section>';
 	echo $html;
 }
-add_action( 'layout-sidebar-bottom-hook', 'adsense_affilliate_sidebar' );
+add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar' );
 
 /**
- * Amazon affilliate (Post)
+ * Adsense affiliate (Post)
  */
-function amazon_affilliate_post() {
-	$html  = '<aside class="amazon-affilliate-post amazon-affilliate-post-pc">';
-	$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=amazonrotate&f=ifr&linkID=5fba818c435c729ec0bc8b8fcde863cc&t=miiitaka-22&tracking_id=miiitaka-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-	$html .= '</aside>';
-	$html .= '<aside class="amazon-affilliate-post amazon-affilliate-post-sp">';
-	$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=amazonrotate&f=ifr&linkID=2937d223acbce2d2d6180b5fa5ab89ae&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
+function adsense_affiliate_post() {
+	$html  = '<aside class="adsense-affiliate-post widget">';
+	$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Post header banner --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5741984081497449" data-ad-slot="2192329214" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
 	$html .= '</aside>';
 	echo $html;
 }
-add_action( 'layout-post-hook', 'amazon_affilliate_post' );
+add_action( 'layout-post-hook', 'adsense_affiliate_post' );
 
 /**
  * Comment Control
