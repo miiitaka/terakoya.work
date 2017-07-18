@@ -169,7 +169,16 @@ add_action( 'layout-sidebar-top-hook', 'amazon_affiliate_sidebar' );
 function adsense_affiliate_sidebar() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<section class="layout-sidebar-bottom-hook">';
-		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Responsive banner --><ins class="adsbygoogle" style="display: block;" data-ad-client="ca-pub-5741984081497449" data-ad-slot="8696742010" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Responsive banner -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-5741984081497449"
+		     data-ad-slot="8696742010"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>';
 		$html .= '</section>';
 		echo $html;
 	}
@@ -182,7 +191,16 @@ add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar' );
 function adsense_affiliate_post() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<aside class="adsense-affiliate-post widget">';
-		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Post header banner --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5741984081497449" data-ad-slot="2192329214" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Post header banner -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-5741984081497449"
+		     data-ad-slot="2192329214"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>';
 		$html .= '</aside>';
 		echo $html;
 	}
