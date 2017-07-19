@@ -156,7 +156,7 @@ add_shortcode( 'github_info', 'display_github_info' );
 function amazon_affiliate_sidebar() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<section class="layout-sidebar-top-hook">';
-		$html .= '<script type="text/javascript">amazon_ad_tag="miiitaka-22";amazon_ad_width="300";amazon_ad_height="250";amazon_ad_link_target="new";amazon_ad_price="retail";amazon_color_border="444444";amazon_color_text ="444444";amazon_ad_categories="a";</script><script src="https://ir-jp.amazon-adsystem.com/s/ads.js"></script>';
+		$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=books&f=ifr&linkID=09f320e3638b1e181b5f873fab337bb7&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
 		$html .= '</section>';
 		echo $html;
 	}
@@ -235,17 +235,6 @@ function add_column( $column_name, $post_id ) {
 }
 add_filter( 'manage_posts_columns', 'manage_posts_columns' );
 add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
-
-/**
- * AdSense Tag
- */
-function add_adsense_tag() {
-	$html  = '';
-	$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
-	$html .= '<script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5741984081497449",enable_page_level_ads: true});</script>';
-	echo $html;
-}
-add_action( 'wp_head', 'add_adsense_tag' );
 
 /**
  * jQuery Migrate remove.
