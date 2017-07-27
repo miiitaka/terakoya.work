@@ -164,9 +164,30 @@ function amazon_affiliate_sidebar() {
 add_action( 'layout-sidebar-top-hook', 'amazon_affiliate_sidebar' );
 
 /**
- * Adsense
+ * Adsense (Sidebar Top)
  */
-function adsense_affiliate_sidebar() {
+function adsense_affiliate_sidebar_top() {
+	if ( !is_user_logged_in() ) {
+		$html  = '<section class="layout-sidebar-top-hook">';
+		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Sidebar top banner -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:300px;height:250px"
+		     data-ad-client="ca-pub-5741984081497449"
+		     data-ad-slot="4152791607"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>';
+		$html .= '</section>';
+		echo $html;
+	}
+}
+add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
+
+/**
+ * Adsense (Sidebar Bottom)
+ */
+function adsense_affiliate_sidebar_bottom() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<section class="layout-sidebar-bottom-hook">';
 		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -183,7 +204,7 @@ function adsense_affiliate_sidebar() {
 		echo $html;
 	}
 }
-add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar' );
+add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar_bottom' );
 
 /**
  * Adsense affiliate (Post)
