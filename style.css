@@ -7,40 +7,38 @@ Theme Name: terakoya.work
  Plug-in: Breadcrumb List
 */
 .breadcrumb-list {
+	display: block;
 	list-style: none;
 	padding: 0 0 0 10px;
 }
 
 .breadcrumb-list li {
-	display: block;
-	padding: 0 0 0 1.2em;
-	position: relative;
+	align-items: center;
+	display: flex;
+	line-height: 1.2;
+	margin: 0 0 3px 0;
 }
 
 @media screen and ( min-width: 1100px ) {
+	.breadcrumb-list {
+		display: flex;
+	}
+
 	.breadcrumb-list li {
-		display: inline-block;
+		margin: 0;
 	}
 }
 
 .breadcrumb-list li:first-child::before {
 	content: "\f102";
-	display: inline-block;
 	font: 1.2em 'dashicons';
 	line-height: 1.2;
-	margin: 0 0 0 -1.2em;
-	position: absolute;
-	top: 0;
 }
 
 .breadcrumb-list li:not(:first-child)::before {
 	content: "\f139";
-	display: inline-block;
 	font: 1.2em 'dashicons';
 	line-height: 1.2;
-	margin: 0 0 0 -1em;
-	position: absolute;
-	top: 0;
 }
 
 /*
