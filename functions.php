@@ -156,7 +156,7 @@ add_shortcode( 'github_info', 'display_github_info' );
 function amazon_affiliate_sidebar() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<section class="layout-sidebar-top-hook">';
-		$html .= '<script type="text/javascript">amzn_assoc_ad_type ="responsive_search_widget"; amzn_assoc_tracking_id ="miiitaka-22"; amzn_assoc_marketplace ="amazon"; amzn_assoc_region ="JP"; amzn_assoc_placement =""; amzn_assoc_search_type = "search_widget";amzn_assoc_width ="auto"; amzn_assoc_height ="auto"; amzn_assoc_default_search_category =""; amzn_assoc_default_search_key ="WordPress JavaScript";amzn_assoc_theme ="light"; amzn_assoc_bg_color ="FFFFFF"; </script><script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>';
+		$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ez&f=ifr&linkID=3a17a6b1b93e5208b8ca2f21df5c68b3&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
 		$html .= '</section>';
 		echo $html;
 	}
