@@ -174,3 +174,9 @@ ul.frequently-searched-words li:after {
 .layout-sidebar-bottom-hook {
 	margin: 0 0 10px 0;
 }
+
+.adsense-post-footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
