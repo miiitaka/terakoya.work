@@ -172,11 +172,23 @@ ul.frequently-searched-words li:after {
 */
 .layout-sidebar-top-hook,
 .layout-sidebar-bottom-hook {
+	display: flex;
+    justify-content: center;
 	margin: 0 0 10px 0;
 }
 
 .adsense-post-footer {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
+}
+
+.adsense-post-footer aside:last-child {
+	display: none;
+}
+
+@media screen and ( min-width: 768px ) {
+	.adsense-post-footer aside:last-child {
+		display: block;
+	}
 }

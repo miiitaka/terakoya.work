@@ -155,20 +155,20 @@ add_shortcode( 'github_info', 'display_github_info' );
  */
 function amazon_affiliate_sidebar() {
 	if ( !is_user_logged_in() ) {
-		$html  = '<section class="layout-sidebar-top-hook">';
+		$html  = '<aside class="layout-sidebar-top-hook">';
 		$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ez&f=ifr&linkID=3a17a6b1b93e5208b8ca2f21df5c68b3&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-		$html .= '</section>';
+		$html .= '</aside>';
 		echo $html;
 	}
 }
-add_action( 'layout-sidebar-top-hook', 'amazon_affiliate_sidebar' );
+add_action( 'layout-sidebar-bottom-hook', 'amazon_affiliate_sidebar' );
 
 /**
  * Adsense (Sidebar Top)
  */
 function adsense_affiliate_sidebar_top() {
 	if ( !is_user_logged_in() ) {
-		$html  = '<section class="layout-sidebar-top-hook">';
+		$html  = '<aside class="layout-sidebar-top-hook">';
 		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- Sidebar top banner -->
 		<ins class="adsbygoogle"
@@ -178,7 +178,7 @@ function adsense_affiliate_sidebar_top() {
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>';
-		$html .= '</section>';
+		$html .= '</aside>';
 		echo $html;
 	}
 }
@@ -189,7 +189,7 @@ add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
  */
 function adsense_affiliate_sidebar_bottom() {
 	if ( !is_user_logged_in() ) {
-		$html  = '<section class="layout-sidebar-bottom-hook">';
+		$html  = '<aside class="layout-sidebar-bottom-hook">';
 		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- Responsive banner -->
 		<ins class="adsbygoogle"
@@ -200,11 +200,11 @@ function adsense_affiliate_sidebar_bottom() {
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>';
-		$html .= '</section>';
+		$html .= '</aside>';
 		echo $html;
 	}
 }
-add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar_bottom' );
+//add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar_bottom' );
 
 /**
  * Adsense affiliate (Post)
