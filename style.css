@@ -121,12 +121,12 @@ Theme Name: terakoya.work
 	display: table-cell;
 	list-style: none;
 	margin: 0;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 15px;
 	vertical-align: top;
 }
 
 .display-plugin-info ul li {
-	margin: 0 0 5px 0;
+	margin: 0 0 10px 0;
 }
 
 .display-plugin-info ul li:first-child {
@@ -139,32 +139,6 @@ Theme Name: terakoya.work
 */
 .adsense-affiliate-post {
 	margin: 0 auto 15px auto;
-}
-
-/*
- Plug-in: Frequently Searched Words
-*/
-ul.frequently-searched-words {
-	margin: 0;
-	padding: 0;
-}
-
-ul.frequently-searched-words li {
-	border: none;
-	display: inline-block;
-	font-size: 12px;
-	padding: 2px 3px 0 3px;
-}
-
-ul.frequently-searched-words li:after {
-	content: "|";
-	padding: 0 0 0 3px;
-}
-
-.frequently-searched-words-title {
-	border-bottom: solid 1px #cccccc;
-	font-size: 12px;
-	padding: 0 0 5px 0;
 }
 
 /*
