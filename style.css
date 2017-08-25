@@ -33,6 +33,7 @@ Theme Name: terakoya.work
 	content: "\f102";
 	font: 1.2em 'dashicons';
 	line-height: 1.2;
+	margin: 0 3px 0 0;
 }
 
 .breadcrumb-list li:not(:first-child)::before {
