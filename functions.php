@@ -185,28 +185,6 @@ function adsense_affiliate_sidebar_top() {
 add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
 
 /**
- * Adsense (Sidebar Bottom)
- */
-function adsense_affiliate_sidebar_bottom() {
-	if ( !is_user_logged_in() ) {
-		$html  = '<aside class="layout-sidebar-bottom-hook">';
-		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Responsive banner -->
-		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-5741984081497449"
-		     data-ad-slot="8696742010"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>';
-		$html .= '</aside>';
-		echo $html;
-	}
-}
-//add_action( 'layout-sidebar-bottom-hook', 'adsense_affiliate_sidebar_bottom' );
-
-/**
  * Adsense affiliate (Post)
  */
 function adsense_affiliate_post() {
