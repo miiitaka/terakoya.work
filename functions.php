@@ -247,3 +247,14 @@ function dequeue_jquery_migrate( $scripts ) {
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 remove_filter('widget_text_content', 'wpautop');
+
+function themes_add_quicktags () {
+	if ( wp_script_is( 'quicktags' ) ) {
+		$html  = '<script>';
+		$html .= 'QTags.addButton( "eg_paragraph", "p", "<p>", "</p>", "p", "Paragraph tag", 1 );';
+		$html .= '</script>';
+
+		echo $html;
+	}
+}
+add_action( 'admin_print_footer_scripts', 'themes_add_quicktags' );
