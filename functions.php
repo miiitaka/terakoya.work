@@ -247,3 +247,39 @@ function dequeue_jquery_migrate( $scripts ) {
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 remove_filter('widget_text_content', 'wpautop');
+
+/**
+ * Login page customize.
+ *
+ * @since 1.0.0
+ */
+function theme_login_style() { ?>
+	<style>
+		body.login div#login h1 a {
+			background-image: url("https://www.terakoya.work/wp-content/uploads/2017/01/logo.png");
+			background-size: contain;
+			height: 60px;
+			width: 100%;
+		}
+		body.login div#login form#loginform p.submit input#wp-submit {
+			background: #4e592b;
+			border-color: #4e592b;
+			box-shadow: 0 1px 0 #4e592b;
+			text-shadow: none;
+		}
+		#backtoblog {
+			display: none;
+		}
+	</style>
+<?php }
+add_action( 'login_enqueue_scripts', 'theme_login_style' );
+
+function theme_login_logo_url() {
+	return esc_url( home_url( '/' ) );
+}
+add_filter( 'login_headerurl', 'theme_login_logo_url' );
+
+function theme_login_logo_url_title() {
+	return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertitle', 'theme_login_logo_url_title' );
