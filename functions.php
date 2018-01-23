@@ -151,19 +151,6 @@ function display_github_info( array $atts ) {
 add_shortcode( 'github_info', 'display_github_info' );
 
 /**
- * Amazon affiliate (Sidebar)
- */
-function amazon_affiliate_sidebar() {
-	if ( !is_user_logged_in() ) {
-		$html  = '<aside class="layout-sidebar-top-hook">';
-		$html .= '<iframe src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ez&f=ifr&linkID=3a17a6b1b93e5208b8ca2f21df5c68b3&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-		$html .= '</aside>';
-		echo $html;
-	}
-}
-add_action( 'layout-sidebar-bottom-hook', 'amazon_affiliate_sidebar' );
-
-/**
  * Adsense (Sidebar Top)
  */
 function adsense_affiliate_sidebar_top() {
