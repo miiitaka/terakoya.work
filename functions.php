@@ -270,3 +270,17 @@ function theme_login_logo_url_title() {
 	return get_bloginfo( 'name' );
 }
 add_filter( 'login_headertitle', 'theme_login_logo_url_title' );
+
+/**
+ * Change 404 title.
+ *
+ * @param  array $title
+ * @return array $title
+ */
+function change_404_title( $title ) {
+	if ( is_404() ) {
+		$title['site'] = '';
+	}
+	return $title;
+}
+add_filter( 'document_title_parts', 'change_404_title' );
