@@ -197,9 +197,9 @@ add_action( 'layout-post-hook', 'adsense_affiliate_post' );
  * Comment Control
  */
  function comment_form_control( $args ) {
-	 $args['fields']['email']      = '';
-	 $args['comment_notes_before'] = '';
-	 return $args;
+	$args['fields']['email']      = '';
+	$args['comment_notes_before'] = '';
+	return $args;
  }
  add_filter( 'comment_form_defaults', 'comment_form_control' );
 
@@ -207,13 +207,13 @@ add_action( 'layout-post-hook', 'adsense_affiliate_post' );
   * Post list thumbnail
   */
 function manage_posts_columns( $columns ) {
-	$columns['thumbnail'] = __( 'Feature Image');
+	$columns['thumbnail'] = __( 'Feature Image' );
 	return $columns;
 }
 
 function add_column( $column_name, $post_id ) {
 	if ( 'thumbnail' == $column_name ) {
-		$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail', array( 'style' => 'width: 100%;' )  );
+		$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail', array( 'style' => 'width: 100%;' ) );
 	}
 	if ( isset( $thumbnail ) && $thumbnail ) {
 		echo preg_replace( '/(width|height)="\d*"\s/', '', $thumbnail );
