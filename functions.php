@@ -101,18 +101,18 @@ function display_plugin_info( array $atts ) {
 	$html    = '';
 
 	foreach ( $plugins as $plugin ) {
-		if ( $plugin->slug === $plugin_slug || empty( $plugin_slug ) ) {
+		if ( $plugin['slug'] === $plugin_slug ) {
 			$html .= '<section class="display-plugin-info">';
 			$html .= '<figure>';
-			$html .= '<a href="' . esc_url( $plugin->homepage ) . '"><img src="' . esc_html( $plugin->icons['1x'] ) . '" alt="' . esc_attr( $plugin->name ) . '" width="128" height="128"></a>';
+			$html .= '<a href="' . esc_url( $plugin['homepage'] ) . '"><img src="' . esc_html( $plugin['icons']['1x'] ) . '" alt="' . esc_attr( $plugin['name'] ) . '" width="128" height="128"></a>';
 			$html .= '</figure>';
 			$html .= '<ul>';
-			$html .= '<li><a href="' . esc_url( $plugin->homepage ) . '">' . esc_html( $plugin->name ) . '</a></li>';
-			$html .= '<li>Author : ' . $plugin->author . '</li>';
-			$html .= '<li>Version : ' . esc_html( $plugin->version ) . '</li>';
-			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin->downloaded ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin->active_installs ) ) . ' )</li>';
-			$html .= '<li>Downloads Site: <a href="https://wordpress.org/plugins/' . esc_html( $plugin->slug ) . '/" target="_blank">https://wordpress.org/plugins/' . esc_html( $plugin->slug ) . '</a></li>';
-			$html .= '<li>' . esc_html( $plugin->short_description ) . '</li>';
+			$html .= '<li><a href="' . esc_url( $plugin['homepage'] ) . '">' . esc_html( $plugin['name'] ) . '</a></li>';
+			$html .= '<li>Author : ' . $plugin['author'] . '</li>';
+			$html .= '<li>Version : ' . esc_html( $plugin['version'] ) . '</li>';
+			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin['downloaded'] ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin['active_installs'] ) ) . ' )</li>';
+			$html .= '<li>Downloads Site: <a href="https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '/" target="_blank">https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '</a></li>';
+			$html .= '<li>' . esc_html( $plugin['short_description'] ) . '</li>';
 			$html .= '</ul>';
 			$html .= '</section>';
 		}
