@@ -310,3 +310,24 @@ function stop_rich_editor( $editor ) {
 	return $editor;
 }
 add_filter( 'user_can_richedit', 'stop_rich_editor' );
+
+/**
+* ダッシュボードにウィジェットを追加する。
+* この関数は以下の 'wp_dashboard_setup' アクションにフックされています。
+*/
+function example_add_dashboard_widgets() {
+	wp_add_dashboard_widget(
+		'example_dashboard_widget',					// ウィジェットのスラッグ.
+		'データポータル',											// タイトル
+		'example_dashboard_widget_function'	// 表示用の関数
+	);
+}
+add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
+
+/**
+* ダッシュボードウィジェットのコンテンツを出力する関数を作成する。
+*/
+function example_dashboard_widget_function() {
+	// ここでデータポータルのiframeを指定する
+	echo '<iframe width="100%" height="500" src="https://datastudio.google.com/embed/reporting/0a4d4f6d-5ece-44c9-be5c-6920bb06d716/page/1M" frameborder="0" style="border:0" allowfullscreen></iframe>';
+}
