@@ -27,16 +27,6 @@ function theme_enqueue_script () {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
-/**
- * Google Tag Manager(AMP).
- */
-function tag_manager_script () {
-	if ( !is_user_logged_in() ) {
-		echo '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>';
-	}
-}
-add_action( 'amp_post_template_head', 'tag_manager_script' );
-
 function tag_manager_analytics () {
 	if ( !is_user_logged_in() ) {
 		echo '<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5D4Q7KC&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>';
@@ -177,16 +167,8 @@ add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
 function adsense_affiliate_post() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<aside class="adsense-affiliate-post widget">';
-		$html .= '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Post header banner -->
-		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-5741984081497449"
-		     data-ad-slot="2192329214"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>';
+		$html .= '<iframe class="adsense-affiliate-post-pc" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=music&f=ifr&linkID=21a79c952f4f4edad39b0e90152cc439&t=miiitaka-22&tracking_id=miiitaka-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
+		$html .= '<iframe class="adsense-affiliate-post-sp" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=music&f=ifr&linkID=5981671eedf4171505a82695ac16bc3a&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
 		$html .= '</aside>';
 		echo $html;
 	}
@@ -311,23 +293,10 @@ function stop_rich_editor( $editor ) {
 }
 add_filter( 'user_can_richedit', 'stop_rich_editor' );
 
-/**
-* ダッシュボードにウィジェットを追加する。
-* この関数は以下の 'wp_dashboard_setup' アクションにフックされています。
-*/
-function example_add_dashboard_widgets() {
-	wp_add_dashboard_widget(
-		'example_dashboard_widget',					// ウィジェットのスラッグ.
-		'データポータル',											// タイトル
-		'example_dashboard_widget_function'	// 表示用の関数
-	);
-}
-add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
-
-/**
-* ダッシュボードウィジェットのコンテンツを出力する関数を作成する。
-*/
-function example_dashboard_widget_function() {
-	// ここでデータポータルのiframeを指定する
-	echo '<iframe width="100%" height="500" src="https://datastudio.google.com/embed/reporting/0a4d4f6d-5ece-44c9-be5c-6920bb06d716/page/1M" frameborder="0" style="border:0" allowfullscreen></iframe>';
-}
+function my_syntaxhighlighter_precode( $code, $attr, $tag ) {
+	if ( $tag === 'code' ) {
+		$code = wp_specialchars_decode( $code, ENT_QUOTES );
+	}
+	return $code;
+	}
+add_filter( 'syntaxhighlighter_precode', 'my_syntaxhighlighter_precode', 10, 3 );

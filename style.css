@@ -3,6 +3,10 @@ Template: maitake
 Theme Name: terakoya.work
 */
 
+body .syntaxhighlighter {
+	width: auto !important;
+}
+
 /*
  Plug-in: Breadcrumb List
 */
