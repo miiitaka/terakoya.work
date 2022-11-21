@@ -146,6 +146,27 @@ body .syntaxhighlighter {
 	margin: 0 auto 15px auto;
 }
 
+.adsense-affiliate-post iframe {
+	margin: 0 auto;
+}
+
+.adsense-affiliate-post-pc {
+	display: none;
+}
+
+.adsense-affiliate-post-sp {
+	display: block;
+}
+
+@media screen and ( min-width: 768px ) {
+	.adsense-affiliate-post-pc {
+		display: block;
+	}
+	.adsense-affiliate-post-sp {
+		display: none;
+	}
+}
+
 /*
  Sidebar hook point
 */

@@ -27,14 +27,6 @@ function theme_enqueue_script () {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
-function tag_manager_analytics () {
-	if ( !is_user_logged_in() ) {
-		echo '<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5D4Q7KC&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>';
-	}
-}
-add_action( 'amp_post_template_footer', 'tag_manager_analytics' );
-
-
 /**
  * RSS Feed Thumbnail add.
  *
@@ -167,8 +159,8 @@ add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
 function adsense_affiliate_post() {
 	if ( !is_user_logged_in() ) {
 		$html  = '<aside class="adsense-affiliate-post widget">';
-		$html .= '<iframe class="adsense-affiliate-post-pc" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=music&f=ifr&linkID=21a79c952f4f4edad39b0e90152cc439&t=miiitaka-22&tracking_id=miiitaka-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
-		$html .= '<iframe class="adsense-affiliate-post-sp" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=music&f=ifr&linkID=5981671eedf4171505a82695ac16bc3a&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
+		$html .= '<iframe class="adsense-affiliate-post-pc" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=music&f=ifr&linkID=a7e03f4f5314b16af179f34b61537ca4&t=miiitaka-22&tracking_id=miiitaka-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
+		$html .= '<iframe class="adsense-affiliate-post-sp" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=music&f=ifr&linkID=6b1cd1b82da5e52cd138b34ad03da348&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
 		$html .= '</aside>';
 		echo $html;
 	}
