@@ -192,3 +192,19 @@ body .syntaxhighlighter {
 		display: block;
 	}
 }
+
+/* 
+ Code List table layout
+*/
+.table-code-list tr th {
+	text-align: left;
+}
+
+.table-code-list td:nth-of-type(1) {
+	width: 30%;
+}
+
+.table-code-list td:nth-of-type(2),
+.table-code-list td:nth-of-type(3) {
+	width: 35%;
+}
