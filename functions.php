@@ -151,7 +151,7 @@ function adsense_affiliate_sidebar_top() {
 		echo $html;
 	}
 }
-add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
+//add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
 
 /**
  * Adsense affiliate (Post)
@@ -165,7 +165,7 @@ function adsense_affiliate_post() {
 		echo $html;
 	}
 }
-add_action( 'layout-post-hook', 'adsense_affiliate_post' );
+//add_action( 'layout-post-hook', 'adsense_affiliate_post' );
 
 /**
  * Comment Control
