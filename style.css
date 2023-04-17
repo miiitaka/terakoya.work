@@ -208,3 +208,9 @@ body .syntaxhighlighter {
 .table-code-list td:nth-of-type(3) {
 	width: 35%;
 }
+
+pre {
+	background: #000;
+    color: #fff;
+    padding: 1rem;
+}
