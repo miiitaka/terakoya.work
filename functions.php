@@ -151,7 +151,7 @@ function adsense_affiliate_sidebar_top() {
 		echo $html;
 	}
 }
-//add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
+add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
 
 /**
  * Adsense affiliate (Post)
@@ -165,7 +165,7 @@ function adsense_affiliate_post() {
 		echo $html;
 	}
 }
-//add_action( 'layout-post-hook', 'adsense_affiliate_post' );
+add_action( 'layout-post-hook', 'adsense_affiliate_post' );
 
 /**
  * Comment Control
@@ -284,11 +284,3 @@ function stop_rich_editor( $editor ) {
 	return $editor;
 }
 add_filter( 'user_can_richedit', 'stop_rich_editor' );
-
-function my_syntaxhighlighter_precode( $code, $attr, $tag ) {
-	if ( $tag === 'code' ) {
-		$code = wp_specialchars_decode( $code, ENT_QUOTES );
-	}
-	return $code;
-	}
-add_filter( 'syntaxhighlighter_precode', 'my_syntaxhighlighter_precode', 10, 3 );
