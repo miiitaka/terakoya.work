@@ -3,8 +3,33 @@ Template: maitake
 Theme Name: terakoya.work
 */
 
-body .syntaxhighlighter {
-	width: auto !important;
+pre {
+	margin: 0 0 1rem;
+}
+
+pre code.hljs {
+	counter-reset: count;
+	padding: 1em .5em;
+}
+
+.row-number {
+	counter-increment: count;
+	display: inline;
+}
+
+.row-number::before {
+	border-right: solid 1px #aaa;
+	color: #aaa;
+	content: counter(count);
+	display: inline-block;
+	margin: 0 1rem 0 0;
+	padding: 0 1rem 0 0;
+	text-align: right;
+	width: 2em;
+}
+
+code {
+	font-family: "Ricty Diminished","Ricty","Myrica M","Migu 1M","Source Han Code JP","SFMono-Regular","Consolas","Liberation Mono","Menlo","Courier",monospace;
 }
 
 /*
@@ -207,10 +232,4 @@ body .syntaxhighlighter {
 .table-code-list td:nth-of-type(2),
 .table-code-list td:nth-of-type(3) {
 	width: 35%;
-}
-
-pre {
-	background: #000;
-    color: #fff;
-    padding: 1rem;
 }
