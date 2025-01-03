@@ -69,12 +69,12 @@ function display_plugin_info( array $atts ) {
 
 	$query = 'query_plugins';
 	$arg['author'] = $author;
-	$arg['fields'] = array(
+	$arg['fields'] = [
 		'active_installs' => true,
 		'compatibility'   => true,
 		'downloaded'      => true,
 		'icons'           => true
-	);
+	];
 	$plugins = plugins_api( $query, $arg )->plugins;
 	$html    = '';
 
@@ -106,9 +106,9 @@ add_shortcode( 'plugin_info', 'display_plugin_info' );
  * @return string $html
  */
 function display_github_info( array $atts ) {
-	$args = array(
+	$args = [
 		'repository' => ''
-	);
+	];
 	extract( shortcode_atts( $args, $atts ) );
 
 	$url   = "https://github.com/miiitaka/";
@@ -148,20 +148,6 @@ function adsense_affiliate_sidebar_top() {
 	}
 }
 add_action( 'layout-sidebar-top-hook', 'adsense_affiliate_sidebar_top', 5 );
-
-/**
- * Adsense affiliate (Post)
- */
-function adsense_affiliate_post() {
-	if ( !is_user_logged_in() ) {
-		$html  = '<aside class="adsense-affiliate-post widget">';
-		$html .= '<iframe class="adsense-affiliate-post-pc" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=music&f=ifr&linkID=a7e03f4f5314b16af179f34b61537ca4&t=miiitaka-22&tracking_id=miiitaka-22" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
-		$html .= '<iframe class="adsense-affiliate-post-sp" src="https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=12&l=ur1&category=music&f=ifr&linkID=6b1cd1b82da5e52cd138b34ad03da348&t=miiitaka-22&tracking_id=miiitaka-22" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>';
-		$html .= '</aside>';
-		echo $html;
-	}
-}
-add_action( 'layout-post-hook', 'adsense_affiliate_post' );
 
 /**
  * Comment Control
