@@ -5,11 +5,11 @@
 function theme_enqueue_styles () {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	if ( !is_user_logged_in() ) {
-		wp_enqueue_script( 'google-tag-manager', get_stylesheet_directory_uri() . '/js/google-tag-manager.js', array(), '1.0.0', false );
+		wp_enqueue_script( 'google-tag-manager', get_stylesheet_directory_uri() . '/js/google-tag-manager.js', [], '1.0.0', false );
 	}
-	wp_enqueue_style( 'highlight-css', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/stackoverflow-dark.min.css', array(), '11.7.0' );
-	wp_enqueue_script( 'highlight-min-js', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js', array(), '11.7.0' );
-	wp_enqueue_script( 'highlight-js', get_stylesheet_directory_uri() . '/js/highlight.js', array( 'highlight-min-js' ), '11.7.0' );
+	wp_enqueue_style( 'highlight-css', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.min.css', [], '11.9.0' );
+	wp_enqueue_script( 'highlight-min-js', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js', [], '11.9.0' );
+	wp_enqueue_script( 'highlight-js', get_stylesheet_directory_uri() . '/js/highlight.js', [ 'highlight-min-js' ], '11.9.0' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -60,10 +60,10 @@ add_action( 'init', function () {
  * @return string $html
  */
 function display_plugin_info( array $atts ) {
-	$args = array(
+	$args = [
 		'author'      => '',
 		'plugin_slug' => ''
-	);
+	];
 	extract( shortcode_atts( $args, $atts ) );
 	require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
@@ -169,7 +169,7 @@ function manage_posts_columns( $columns ) {
 
 function add_column( $column_name, $post_id ) {
 	if ( 'thumbnail' == $column_name ) {
-		$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail', array( 'style' => 'width: 100%;' ) );
+		$thumbnail = get_the_post_thumbnail( $post_id, 'thumbnail', [ 'style' => 'width: 100%;' ] );
 	}
 	if ( isset( $thumbnail ) && $thumbnail ) {
 		echo preg_replace( '/(width|height)="\d*"\s/', '', $thumbnail );
@@ -184,7 +184,7 @@ add_action( 'manage_posts_custom_column', 'add_column', 10, 2 );
 function dequeue_jquery_migrate( $scripts ) {
 	if( !is_admin() ) {
 		$scripts->remove( 'jquery' );
-		$scripts->add( 'jquery', false, array( 'jquery-core' ) );
+		$scripts->add( 'jquery', false, [ 'jquery-core' ] );
 	}
 }
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
