@@ -189,7 +189,7 @@ function dequeue_jquery_migrate( $scripts ) {
 }
 add_filter( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
-remove_filter('widget_text_content', 'wpautop');
+remove_filter( 'widget_text_content', 'wpautop' );
 
 /**
  * Login page customize.
