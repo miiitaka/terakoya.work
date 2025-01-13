@@ -84,15 +84,24 @@ function display_plugin_info( array $atts ) {
 			$html .= '<figure>';
 			$html .= '<a href="' . esc_url( $plugin['homepage'] ) . '"><img src="' . esc_html( $plugin['icons']['1x'] ) . '" alt="' . esc_attr( $plugin['name'] ) . '" width="128" height="128"></a>';
 			$html .= '</figure>';
-			$html .= '<ul>';
-			$html .= '<li><a href="' . esc_url( $plugin['homepage'] ) . '">' . esc_html( $plugin['name'] ) . '</a></li>';
-			$html .= '<li>Author : ' . $plugin['author'] . '</li>';
-			$html .= '<li>Version : ' . esc_html( $plugin['version'] ) . '</li>';
-			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin['downloaded'] ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin['active_installs'] ) ) . ' )</li>';
-			$html .= '<li>Downloads Site: <a href="https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '/" target="_blank">https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '</a></li>';
-			$html .= '<li>' . esc_html( $plugin['short_description'] ) . '</li>';
+			$html .= '
+<ul>
+';
+			$html .= '<li><a href="' . esc_url( $plugin['homepage'] ) . '">' . esc_html( $plugin['name'] ) . '</a></li>
+';
+			$html .= '<li>Author : ' . $plugin['author'] . '</li>
+';
+			$html .= '<li>Version : ' . esc_html( $plugin['version'] ) . '</li>
+';
+			$html .= '<li>Downloads : ' . esc_html( number_format( $plugin['downloaded'] ) ) . ' ( Active Install: ' . esc_html( number_format( $plugin['active_installs'] ) ) . ' )</li>
+';
+			$html .= '<li>Downloads Site: <a href="https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '/" target="_blank">https://wordpress.org/plugins/' . esc_html( $plugin['slug'] ) . '</a></li>
+';
+			$html .= '<li>' . esc_html( $plugin['short_description'] ) . '</li>
+';
 			$html .= '</ul>';
-			$html .= '</section>';
+			$html .= '
+</section>';
 		}
 	}
 	return (string) $html;
@@ -117,12 +126,18 @@ function display_github_info( array $atts ) {
 	$html .= '<figure>';
 	$html .= '<a href="' . $url . esc_attr( $repository ) . '"><img src="https://www.terakoya.work/wp-content/uploads/2017/03/octocat-monalisa.png" alt="GitHub" width="128" height="128"></a>';
 	$html .= '</figure>';
-	$html .= '<ul>';
-	$html .= '<li><a href="' . $url . esc_attr( $repository ) . '">' . esc_html( $repository ) . '</a></li>';
-	$html .= '<li>Author : <a href="' . $url . '">Kazuya Takami</a></li>';
-	$html .= '<li>Repository URL : <a href="' . $url . esc_attr( $repository ) . '">' . $url . esc_attr( $repository ) . '</a></li>';
+	$html .= '
+<ul>
+';
+	$html .= '<li><a href="' . $url . esc_attr( $repository ) . '">' . esc_html( $repository ) . '</a></li>
+';
+	$html .= '<li>Author : <a href="' . $url . '">Kazuya Takami</a></li>
+';
+	$html .= '<li>Repository URL : <a href="' . $url . esc_attr( $repository ) . '">' . $url . esc_attr( $repository ) . '</a></li>
+';
 	$html .= '</ul>';
-	$html .= '</section>';
+	$html .= '
+</section>';
 
 	return (string) $html;
 }
