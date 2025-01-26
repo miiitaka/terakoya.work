@@ -281,3 +281,11 @@ function stop_rich_editor( $editor ) {
 	return $editor;
 }
 add_filter( 'user_can_richedit', 'stop_rich_editor' );
+
+/**
+ * Add categoory (page).
+ */
+function add_category_page() {
+	register_taxonomy_for_object_type( 'category', 'page' );
+}
+add_action( 'init', 'add_category_page' );
