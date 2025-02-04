@@ -289,3 +289,10 @@ function add_category_page() {
 	register_taxonomy_for_object_type( 'category', 'page' );
 }
 add_action( 'init', 'add_category_page' );
+
+function add_category_archive_page( $query ) {
+	if ( $query->is_category && $query->is_main_query() ) {
+		$query->set( 'post_type', ['post', 'page'] );
+	}
+}
+add_action( 'pre_get_posts', 'add_category_archive_page' );
