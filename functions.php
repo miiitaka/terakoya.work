@@ -283,7 +283,7 @@ function stop_rich_editor( $editor ) {
 add_filter( 'user_can_richedit', 'stop_rich_editor' );
 
 /**
- * Add categoory (page).
+ * Add category (page).
  */
 function add_category_page() {
 	register_taxonomy_for_object_type( 'category', 'page' );
@@ -296,3 +296,18 @@ function add_category_archive_page( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'add_category_archive_page' );
+
+/**
+ * Add tag (page).
+ */
+function add_tag_page() {
+	register_taxonomy_for_object_type( 'post_tag', 'page' );
+}
+add_action( 'init', 'add_tag_page' );
+
+function add_tag_archive_page( $obj ) {
+	if ( is_tag() ) {
+		$obj->query_vars['post_type'] = [ 'post', 'page' ];
+	}
+}
+add_action( 'pre_get_posts', 'add_tag_archive_page' );
